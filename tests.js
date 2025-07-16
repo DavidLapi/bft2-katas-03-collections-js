@@ -5,7 +5,7 @@ describe("Colecciones en JS: Array", () => {
     it("Pueden crearse usando [ ]", () => {
 
         // crea un array "a" usando los corchetes []
-        let a = [1, 2, 3 , "pedro"];
+        let a = [1, 2, 7 , "pedro"];
 
         expect(Array.isArray(a)).to.be.true;
     })
@@ -154,7 +154,7 @@ describe("Operaciones iterables", () => {
         let list = [1,5,7,9,11,13];
 
         // utiliza la función map para aplicar los números de la lista
-        list = "???";
+        list = list.map(num => num - 1);
         
 
         expect(list).to.have.same.members([0,4,6,8,10,12]);
