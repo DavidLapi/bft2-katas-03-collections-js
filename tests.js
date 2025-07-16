@@ -165,6 +165,11 @@ describe("Operaciones iterables", () => {
         let list = ["Pikachu", "Charmander", "Magikarp"];
 
         // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
+        function pokeball(pokemon) {
+            return pokemon + ", te elijo a ti!";
+        }
+
+        let result = list.map(pokeball);
                 
         expect(result).to.have.same.members([
             "Pikachu, te elijo a ti!",
@@ -178,7 +183,7 @@ describe("Operaciones iterables", () => {
         let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
 
         // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-        let result = "???";
+        let result = knownExoplanets.includes("TOI-1634 b");
         
         expect(result).to.equal(true);        
     })
@@ -190,7 +195,11 @@ describe("Operaciones iterables", () => {
         // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
         // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
         // p.ej. "Hola".endsWith('a') devuelve true
-        let result = "???";
+        function planetsEndsWithC(planet) {
+            return planet.endsWith('c');
+        }
+
+        let result = knownExoplanets.filter(planetsEndsWithC);
         
 
         // todos los planetas de result terminan con la letra c
@@ -199,5 +208,24 @@ describe("Operaciones iterables", () => {
 
     // Bonus: Escribe un test como los anteriores con algún ejemplo que utilice 
     // una lista alguna de las funciones que hemos visto, como map o filter.
+    it("buscando cachopos", () => {
+
+        let cachopos = ["cecina", "queso gamoneu", "ternera", "rulo de cabra", "cabrales", "pollo", "cerdo", "toro", "buey"]
+
+        let result = cachopos.map(cacho => "Me encanta el cachopo de "+cacho+"!");
+
+        expect(result).to.have.same.members([
+            "Me encanta el cachopo de cecina!",
+            "Me encanta el cachopo de queso gamoneu!",
+            "Me encanta el cachopo de ternera!",
+            "Me encanta el cachopo de rulo de cabra!",
+            "Me encanta el cachopo de cabrales!",
+            "Me encanta el cachopo de pollo!",
+            "Me encanta el cachopo de cerdo!",
+            "Me encanta el cachopo de toro!",
+            "Me encanta el cachopo de buey!"
+        ]);
+
+    })
     
 })
